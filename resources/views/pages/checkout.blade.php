@@ -77,7 +77,7 @@
 							     <h4 class="mt-2">Apply Coupon</h4 class="mt-2">
 							     <form action="{{route('apply.coupon')}}" method="post">
 							     	@csrf
-							     	 <div class="form-group col-lg-5 p-0 my-3">
+							     	 <div class="form-group col-lg-12 p-0 my-3">
 	                                      <input type="text" class="form-control" name="coupon" required=""  aria-describedby="emailHelp" placeholder="Coupon Code">
 	                                   </div>
 	                                   <button type="submit" class="btn btn-success ">submit</button>
@@ -122,6 +122,10 @@
 					   
 			
 				</div>
+			</div>
+			<div class="cart_buttons mr-5">
+			<a href="{{ route('show.cart') }}" class="button cart_button_clear">Back</a>
+			<a href="{{ route('payment.step') }}" class="button cart_button_checkout">Final Step</a>
 			</div>
 			   {{-- 	<div class="cart_buttons">
 				    <a href="{{ route('show.cart') }}" class="button cart_button_clear">Back</a>

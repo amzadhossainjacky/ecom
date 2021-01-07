@@ -36,7 +36,7 @@
 											</a>
 											<ul>
 												@foreach ($subcategory as $row)
-													<li><a href="#">{{$row->subcategory_name}}<i class="fas fa-chevron-right"></i></a></li>
+													<li><a href="{{route('viewAllProducts',$row->id)}}">{{$row->subcategory_name}}<i class="fas fa-chevron-right"></i></a></li>
 												@endforeach
 											</ul>
 										</li>

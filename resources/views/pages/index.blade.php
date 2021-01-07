@@ -202,7 +202,7 @@
 						<div class="featured_slider_dots_cover"></div>
 					</div>
 
-
+					
 							<!-- Product Panel -->
 							<div class="product_panel panel">
 								<div class="featured_slider slider">
@@ -1756,12 +1756,12 @@
 				  <input type="hidden" name="product_id" id="product_id">
 				  <div class="form-group" id="colordiv">
 					<label for="">Color</label>
-					<select name="color" class="form-control">
+					<select name="color" class="form-control m-0 w-100">
 					</select>
 				  </div>
 				   <div class="form-group" id="sizediv" >
 					<label for="exampleInputEmail1">Size</label>
-					<select name="size" class="form-control" id="size">
+					<select name="size" class="form-control m-0 w-100" id="size">
 					</select>
 				  </div>
 				  <div class="form-group">

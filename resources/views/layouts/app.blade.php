@@ -21,7 +21,7 @@
 
 <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/main_styles.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/responsive.css')}}">
-
+<script src="https://js.stripe.com/v3/"></script>
 </head>
 
 <body>
@@ -80,7 +80,7 @@
 										<div><a href="{{route('home')}}">Profile</a></div>
 										<ul>
 											<li><a href="#">Wishlist</a></li>
-											<li><a href="#">Checkout</a></li>
+											<li><a href="{{route('user.checkout')}}">Checkout</a></li>
 											<li><a href="#">Extra</a></li>
 										</ul>
 										@endguest 
@@ -123,7 +123,7 @@
 												<i class="fas fa-chevron-down"></i>
 												<ul class="custom_list clc">
 													@foreach ($category as $row)
-													<li><a class="clc" href="#">{{$row->category_name}}</a></li>
+													<li><a class="clc" href="">{{$row->category_name}}</a></li>
 													@endforeach
 												</ul>
 											</div>

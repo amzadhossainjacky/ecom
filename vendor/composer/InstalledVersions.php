@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'efd0af2bbaa321a156a2dd4a036ba38e6f5c28e0',
+    'reference' => 'f7650c4c007fd2e9abd39968fca8749ccec81355',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -419,7 +419,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'efd0af2bbaa321a156a2dd4a036ba38e6f5c28e0',
+      'reference' => 'f7650c4c007fd2e9abd39968fca8749ccec81355',
     ),
     'laravel/tinker' => 
     array (
@@ -867,6 +867,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '99732be0ddb3361e16ad77b68ba41efc8e979019',
+    ),
+    'stripe/stripe-php' => 
+    array (
+      'pretty_version' => 'v7.67.0',
+      'version' => '7.67.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '935d2c67912007f6d17b6c08a62050252c509129',
     ),
     'swiftmailer/swiftmailer' => 
     array (

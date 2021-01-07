@@ -93,6 +93,13 @@ Route::get('user/checkout','CartController@checkout')->name('user.checkout');
 Route::post('coupon/apply','CartController@couponApply')->name('apply.coupon');
 Route::get('remove/coupon','CartController@couponRemove')->name('remove.coupon');
 
+//payment 
+Route::get('user/payment/process','PaymentController@payment')->name('payment.step');
+Route::post('user/payment','PaymentController@paymentType')->name('paymentType');
+Route::post('user/payment/stripe','PaymentController@paymentStripe')->name('stripe.charge');
+
+
+
 //product details
 Route::get('product/details/{id}/{product_title}', 'ProductDetailsController@productView')->name('product.detail');
 //Route::post('cart/product/add/{id}', 'ProductDetailsController@addToCart'); //not ajax use and come from product details page
@@ -100,7 +107,7 @@ Route::get('product/details/{id}/{product_title}', 'ProductDetailsController@pro
 //index ajax modal product view route
 Route::get('cart/product/view/{id}', 'ProductDetailsController@cartProductView');
 Route::post('cart/product/add/{id}', 'ProductDetailsController@addToCart')->name('add.product.cart');
-
+Route::get('products/view/{id}', 'ProductDetailsController@viewAllProducts')->name('viewAllProducts');
 
 
 //user profile with mail verification
