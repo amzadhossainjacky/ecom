@@ -88,7 +88,7 @@ class PaymentController extends Controller
 			 if (Session::has('coupon')) {
 			 	 $data['subtotal']=Session::get('coupon')['balance'];
     	     }else{
-    	  	      $data['subtotal']=Cart::Subtotal() ;
+    	  	      $data['subtotal']=str_replace( ',', '', Cart::subtotal()); ;
     	    }
     	    $data['status']=0;
     	    $data['date']=date('d-m-y');

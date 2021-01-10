@@ -98,6 +98,17 @@ Route::get('user/payment/process','PaymentController@payment')->name('payment.st
 Route::post('user/payment','PaymentController@paymentType')->name('paymentType');
 Route::post('user/payment/stripe','PaymentController@paymentStripe')->name('stripe.charge');
 
+//orders
+Route::get('admin/pending/orders','Admin\Order\OrderController@newOrder')->name('new.pending.orders');
+Route::get('admin/view/orders/{id}','Admin\Order\OrderController@viewOrder')->name('view.order');
+Route::get('admin/accept/orders/{id}','Admin\Order\OrderController@acceptOrder')->name('admin.accept.order');
+Route::get('admin/cancel/orders/{id}','Admin\Order\OrderController@cancelOrder')->name('admin.cancel.order');
+Route::get('admin/accept/all/orders','Admin\Order\OrderController@acceptAllOrder')->name('admin.accept.all.orders');
+Route::get('admin/cancel/all/orders','Admin\Order\OrderController@cancelAllOrder')->name('admin.cancel.all.orders');
+Route::get('admin/progress/all/orders','Admin\Order\OrderController@progressAllOrder')->name('admin.progress.all.orders');
+Route::get('admin/delivery/all/orders','Admin\Order\OrderController@successAllOrder')->name('admin.success.all.orders');
+Route::get('admin/delivery/orders/{id}','Admin\Order\OrderController@deliveryProgress')->name('admin.delivery.order');
+Route::get('admin/success/orders/{id}','Admin\Order\OrderController@successOrder')->name('admin.success.order');
 
 
 //product details

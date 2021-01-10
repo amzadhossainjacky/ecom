@@ -100,6 +100,22 @@
         <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
+            <span class="menu-item-label">Orders</span>
+            <i class="menu-item-arrow fa fa-angle-down"></i>
+          </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <ul class="sl-menu-sub nav flex-column">
+          <li class="nav-item"><a href="{{route('new.pending.orders')}}" class="nav-link">New Orders</a></li>
+          <li class="nav-item"><a href="{{ route('admin.accept.all.orders') }}" class="nav-link">Accept Orders</a></li>
+           <li class="nav-item"><a href="{{ route('admin.progress.all.orders') }}" class="nav-link">Progress Delivery</a></li>
+            <li class="nav-item"><a href="{{ route('admin.success.all.orders') }}" class="nav-link">Delivery Success</a></li>
+          <li class="nav-item"><a href="{{ route('admin.cancel.all.orders') }}" class="nav-link">Cancel Orders</a></li>
+        </ul>
+
+
+        <a href="#" class="sl-menu-link">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
             <span class="menu-item-label">Others</span>
             <i class="menu-item-arrow fa fa-angle-down"></i>
           </div><!-- menu-item -->
