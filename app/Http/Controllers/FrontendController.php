@@ -62,9 +62,25 @@ class FrontendController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        //order tracking
+
+        $code = $request->status_code;
+        $check = DB::table('orders')->where('status_code',$code)->first();
+        $order = DB::table('orders')->where('status_code',$code)->first();
+        
+        if($check){
+
+            return view('pages.order_tracking',compact('order'));
+        }else{
+            $notification=array(
+                'messege'=>'Invalid Status Code!',
+                'alert-type'=>'error'
+                 );
+               return Redirect()->back()->with($notification);
+        }
+
     }
 
     /**

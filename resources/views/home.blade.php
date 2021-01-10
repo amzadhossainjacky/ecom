@@ -1,31 +1,34 @@
 @extends('layouts.app')
 @section('content')
 
+
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <table class="table">
+        <div class="col-12 col-lg-8 col-sm-12 ">
+            <table class="table responsive">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Payment Type</th>
+                    <th scope="col">Payment ID</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Status Code</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
+                  @foreach ($orders as $row)
+                    <tr>
+                      <th>{{$row->payment_type}}</th>
+                      <td>{{$row->payment_id}}</td>
+                      <td>$ {{$row->total}}</td>
+                      <td>{{$row->date}}</td>
+                      <td>{{$row->status_code}}</td>
+                      <td>
+                        <a href="{{route('user.view.order', $row->id)}}" class="btn btn-sm btn-info">view</a>
+                      </td>
+                    </tr>
+                  @endforeach
                 </tbody>
               </table>
         </div>

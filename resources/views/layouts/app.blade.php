@@ -52,12 +52,7 @@
 										</ul>
 									</li>
 									<li>
-										<a href="#">$ US dollar<i class="fas fa-chevron-down"></i></a>
-										<ul>
-											<li><a href="#">EUR Euro</a></li>
-											<li><a href="#">GBP British Pound</a></li>
-											<li><a href="#">JPY Japanese Yen</a></li>
-										</ul>
+										<a href="#" data-toggle="modal" data-target="#exampleModal">My Order<i class="fas fa-chevron-down"></i></a>
 									</li>
 								</ul>
 							</div>
@@ -276,6 +271,32 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 		</div>
 	</div>
 </div>
+
+
+<!-- Order Tracking Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="exampleModalLabel">Your Status Code</h5>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body">
+		   <form method="post" action="{{route('user.track.order')}}">
+			   @csrf
+			   <div class="form-row">
+					<label>Status Code</label>
+					 <input type="text" name="status_code" required="" class="form-control" placeholder="Your Order Status Code">
+			   </div><br>
+			   <button class="btn btn-info" type="submit">Track Now</button>                 
+		   </form>
+		</div>
+	  </div>
+	</div>
+  </div>
+
 
 <script src="{{asset('public/frontend/js/jquery-3.3.1.min.js')}}"></script>
 <script src="{{asset('public/frontend/styles/bootstrap4/popper.js')}}"></script>

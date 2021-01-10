@@ -74,6 +74,11 @@ class PaymentController extends Controller
             'source' => $token,
             'metadata' => ['order_id' => uniqid()],
             ]);
+
+            //unique number generator
+            $number = mt_rand(10,100000);
+            $t=time();
+            $random = $number.''.str_replace( '-', '', date('d-m-y')).$t;
         
             $data=array();
 			$data['user_id']=Auth::id();
@@ -88,9 +93,10 @@ class PaymentController extends Controller
 			 if (Session::has('coupon')) {
 			 	 $data['subtotal']=Session::get('coupon')['balance'];
     	     }else{
-    	  	      $data['subtotal']=str_replace( ',', '', Cart::subtotal()); ;
+    	  	      $data['subtotal']=str_replace( ',', '', Cart::subtotal()); 
     	    }
-    	    $data['status']=0;
+            $data['status']=0;
+    	    $data['status_code']=$random;
     	    $data['date']=date('d-m-y');
     	    $data['month']=date('F');
     	    $data['year']=date('Y');
