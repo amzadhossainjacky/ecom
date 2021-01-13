@@ -32,6 +32,7 @@ class FrontendController extends Controller
                     ->where('products.status', 1)
                     ->where('products.mid_slider',1)->orderBy('id', 'desc')->limit(3)->get();
 
+        
         return view('pages.index', compact('featured','trend','best_rated', 'hot_deal', 'mid_slider'));
     }
 

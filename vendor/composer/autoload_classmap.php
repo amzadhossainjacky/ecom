@@ -17,6 +17,7 @@ return array(
     'App\\Http\\Controllers\\Admin\\FrontEndController' => $baseDir . '/app/Http/Controllers/Admin/FrontEndController.php',
     'App\\Http\\Controllers\\Admin\\LoginController' => $baseDir . '/app/Http/Controllers/Admin/LoginController.php',
     'App\\Http\\Controllers\\Admin\\Newsletter\\NewsletterController' => $baseDir . '/app/Http/Controllers/Admin/Newsletter/NewsletterController.php',
+    'App\\Http\\Controllers\\Admin\\Order\\OrderController' => $baseDir . '/app/Http/Controllers/Admin/Order/OrderController.php',
     'App\\Http\\Controllers\\Admin\\Product\\ProductController' => $baseDir . '/app/Http/Controllers/Admin/Product/ProductController.php',
     'App\\Http\\Controllers\\Admin\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Admin/ResetPasswordController.php',
     'App\\Http\\Controllers\\Admin\\SubCategory\\SubCategoryController' => $baseDir . '/app/Http/Controllers/Admin/SubCategory/SubCategoryController.php',

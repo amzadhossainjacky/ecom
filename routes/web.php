@@ -112,6 +112,11 @@ Route::get('admin/delivery/orders/{id}','Admin\Order\OrderController@deliveryPro
 Route::get('admin/success/orders/{id}','Admin\Order\OrderController@successOrder')->name('admin.success.order');
 
 
+//site setting 
+Route::get('admin/site/setting','Admin\SiteSetting\SiteSetting@siteSetting')->name('admin.site_setting');
+Route::post('admin/update/site/setting','Admin\SiteSetting\SiteSetting@updateSetting')->name('update.admin.sitesetting');
+
+
 //product details
 Route::get('product/details/{id}/{product_title}', 'ProductDetailsController@productView')->name('product.detail');
 //Route::post('cart/product/add/{id}', 'ProductDetailsController@addToCart'); //not ajax use and come from product details page

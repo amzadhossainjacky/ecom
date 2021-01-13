@@ -474,6 +474,7 @@ class ComposerStaticInite3bae772c4b322f01cd1c02f89ef47e9
         'App\\Http\\Controllers\\Admin\\FrontEndController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/FrontEndController.php',
         'App\\Http\\Controllers\\Admin\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/LoginController.php',
         'App\\Http\\Controllers\\Admin\\Newsletter\\NewsletterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Newsletter/NewsletterController.php',
+        'App\\Http\\Controllers\\Admin\\Order\\OrderController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Order/OrderController.php',
         'App\\Http\\Controllers\\Admin\\Product\\ProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Product/ProductController.php',
         'App\\Http\\Controllers\\Admin\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ResetPasswordController.php',
         'App\\Http\\Controllers\\Admin\\SubCategory\\SubCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/SubCategory/SubCategoryController.php',
