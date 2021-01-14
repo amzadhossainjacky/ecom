@@ -22,6 +22,9 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/product_styles.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/styles/product_responsive.css')}}">
+<!-- sweet alert css -->
+<link rel="stylesheet" href="sweetalert2.min.css">
+
 
 <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/main_styles.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/responsive.css')}}">
@@ -47,14 +50,14 @@
 						<div class="top_bar_content ml-auto">
 							<div class="top_bar_menu">
 								<ul class="standard_dropdown top_bar_dropdown">
-									<li>
+									{{-- <li>
 										<a href="#">English<i class="fas fa-chevron-down"></i></a>
 										<ul>
 											<li><a href="#">Italian</a></li>
 											<li><a href="#">Spanish</a></li>
 											<li><a href="#">Japanese</a></li>
 										</ul>
-									</li>
+									</li> --}}
 									<li>
 										<a href="#" data-toggle="modal" data-target="#exampleModal">My Order<i class="fas fa-chevron-down"></i></a>
 									</li>
@@ -78,9 +81,8 @@
 										@else
 										<div><a href="{{route('home')}}">Profile</a></div>
 										<ul>
-											<li><a href="#">Wishlist</a></li>
+											<li><a href="{{route('user.wishlist')}}">Wishlist</a></li>
 											<li><a href="{{route('user.checkout')}}">Checkout</a></li>
-											<li><a href="#">Extra</a></li>
 										</ul>
 										@endguest 
 									</li>
@@ -110,23 +112,10 @@
 						<div class="header_search">
 							<div class="header_search_content">
 								<div class="header_search_form_container">
-									<form action="#" class="header_search_form clearfix">
-										<input type="search" required="required" class="header_search_input" placeholder="Search for products...">
-										<div class="custom_dropdown">
-											<div class="custom_dropdown_list">
-												<span class="custom_dropdown_placeholder clc">All Categories</span>
-
-												@php
-													$category = DB::table('categories')->get();
-												@endphp
-												<i class="fas fa-chevron-down"></i>
-												<ul class="custom_list clc">
-													@foreach ($category as $row)
-													<li><a class="clc" href="">{{$row->category_name}}</a></li>
-													@endforeach
-												</ul>
-											</div>
-										</div>
+									<form action="{{route('product.search')}}" method="post" class="header_search_form clearfix">
+										@csrf
+										<input type="search" required="required" class="header_search_input" placeholder="Search for products..." name="search">
+										
 										<button type="submit" class="header_search_button trans_300" value="Submit"><img src="{{asset('public/frontend/images/search.png')}}" alt=""></button>
 									</form>
 								</div>
@@ -320,7 +309,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
 
 
-
 <script>
 	@if(Session::has('messege'))
 	  var type="{{Session::get('alert-type','info')}}"
@@ -340,6 +328,27 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	  }
 	@endif
   </script>  
+
+<script>  
+	$(document).on("click", "#return", function(e){
+		e.preventDefault();
+		var link = $(this).attr("href");
+		   swal({
+			 title: "Are you Want to Return?",
+			 text: "Once Return,You will return your money!",
+			 icon: "warning",
+			 buttons: true,
+			 dangerMode: true,
+		   })
+		   .then((willDelete) => {
+			 if (willDelete) {
+				  window.location.href = link;
+			 } else {
+			   swal("Cancel");
+			 }
+		   });
+	   });
+</script>
 </body>
 
 </html>

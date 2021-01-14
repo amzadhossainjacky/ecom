@@ -97,6 +97,7 @@ class PaymentController extends Controller
     	    }
             $data['status']=0;
     	    $data['status_code']=$random;
+    	    $data['return_order']=0;
     	    $data['date']=date('d-m-y');
     	    $data['month']=date('F');
     	    $data['year']=date('Y');
@@ -127,7 +128,15 @@ class PaymentController extends Controller
     	    		$details['single_price']=$row->price;
     	    		$details['total_price']=$row->qty * $row->price;
     	    		DB::table('order_details')->insert($details);
-    	    	}
+                }
+                
+                //stock management
+                $stock=DB::table('order_details')->where('order_id',$order_id)->get();
+                foreach ($stock as $row) {
+                    DB::table('products')
+                    ->where('id',$row->product_id)
+                    ->update(['product_quantity' => DB::raw('product_quantity -'.$row->quantity)]);
+                }
 
     	    	Cart::destroy();
     	    	 if (Session::has('coupon')) {

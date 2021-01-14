@@ -12,6 +12,7 @@ Route::post('/password/update', 'HomeController@updatePassword')->name('password
 Route::get('/user/logout', 'HomeController@Logout')->name('user.logout');
 Route::get('/user/view/order/{id}', 'HomeController@viewOrder')->name('user.view.order');
 Route::post('/user/order/tracking', 'FrontendController@show')->name('user.track.order');
+Route::post('/product/search', 'FrontendController@searchProduct')->name('product.search');
 
 //admin=======
 Route::get('admin/home', 'AdminController@index')->name('admin.home');
@@ -111,6 +112,13 @@ Route::get('admin/delivery/all/orders','Admin\Order\OrderController@successAllOr
 Route::get('admin/delivery/orders/{id}','Admin\Order\OrderController@deliveryProgress')->name('admin.delivery.order');
 Route::get('admin/success/orders/{id}','Admin\Order\OrderController@successOrder')->name('admin.success.order');
 
+//return order list (users)
+Route::get('/user/return/order/list','HomeController@returnOrderLists')->name('return.order.list');
+Route::get('/user/return/order/{id}','HomeController@returnOrder')->name('user.return.order');
+//return order list (admin)
+Route::get('/admin/return/order/list','Admin\ReturnOrder\ReturnOrderController@returnOrders')->name('admin.return.order');
+Route::get('/admin/return/order/approve/{id}','Admin\ReturnOrder\ReturnOrderController@approveReturn')->name('admin.approve.return');
+Route::get('/admin/view/all/return/order','Admin\ReturnOrder\ReturnOrderController@viewAllReturn')->name('admin.view.return.order');
 
 //site setting 
 Route::get('admin/site/setting','Admin\SiteSetting\SiteSetting@siteSetting')->name('admin.site_setting');

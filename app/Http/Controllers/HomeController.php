@@ -90,4 +90,20 @@ class HomeController extends Controller
 
          return view('pages.user_order',compact('order','shipping','details'));
     }
+
+    public function returnOrderLists(){
+
+      $order = DB::table('orders')->where('user_id', Auth::id())->where('status', 3)->get();
+      return view('pages.return_order', compact('order'));
+    }
+
+    public function returnOrder($id){
+          DB::table('orders')->where('id', $id)->update(['return_order'=>1]);
+
+          $notification=array(
+            'messege'=>'Order return request done. please wait for the confirmation.',
+            'alert-type'=>'success'
+             );
+         return redirect()->to('/')->with($notification);
+    }
 }
