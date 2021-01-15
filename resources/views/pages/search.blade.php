@@ -157,7 +157,4 @@
 <script src="{{ asset('public/frontend/plugins/parallax-js-master/parallax.min.js') }}"></script>
 <script src="{{ asset('public/frontend/js/shop_custom.js') }}"></script>
 
-
-
-
 @endsection

@@ -44,16 +44,108 @@ class PaymentController extends Controller
 
             return view('pages.payment.stripe',compact('data','charge'));
         }
-        else if($request->paymentType == 'paypal'){
+        /* else if($request->paymentType == 'paypal'){
             echo "paypal";
         }
         else if($request->paymentType == 'ideal'){
             echo "ideal";
-        }
-        else{
-            return response()->json($data);
+        } */
+        else if($request->paymentType == 'cash'){
+           //return response()->json($data);
+
+           $number = mt_rand(10,100000);
+           $t=time();
+           $random = $number.''.str_replace( '-', '', date('d-m-y')).$t;
+
+           $total =0;
+           if(Session::has('coupon')){
+                $total =Session::get('coupon')['balance'] + $charge;
+                $total = number_format($total, 2,".",",");
+           }
+                  
+           else{
+               $subtotal = str_replace( ',', '', Cart::subtotal());
+               $total = number_format($subtotal  + $charge, 2,".",",");
+           }
+
+       
+           $data=array();
+           $data['user_id']=Auth::id();
+           $data['payment_id']= uniqid();
+           $data['paying_amount']=$total;
+           //$data['blnc_transaction']=NULL;
+           $data['ptype_order_id']=uniqid();
+           $data['shipping']=$charge;
+           $data['vat']=0;
+           $data['total']=$total;
+           $data['payment_type']="cash";
+            if (Session::has('coupon')) {
+                 $data['subtotal']=Session::get('coupon')['balance'];
+            }else{
+                   $data['subtotal']=str_replace( ',', '', Cart::subtotal()); 
+           }
+           $data['status']=0;
+           $data['status_code']=$random;
+           $data['return_order']=0;
+           $data['date']=date('d-m-y');
+           $data['month']=date('F');
+           $data['year']=date('Y');
+          // $data['status_code']=mt_rand(100000,999999); 
+           $order_id=DB::table('orders')->insertGetId($data);
+
+           // insert shipping details table
+
+               $shipping=array();
+               $shipping['order_id']=$order_id;
+               $shipping['ship_name']=$request->name;
+               $shipping['ship_email']=$request->email;
+               $shipping['ship_phone']=$request->phone;
+               $shipping['ship_address']=$request->address;
+               $shipping['ship_city']=$request->city;
+               DB::table('shipping')->insert($shipping);
+
+               //insert data into orderdeatils
+               $content=Cart::content();
+               $details=array();
+               foreach ($content as $row) {
+                   $details['order_id']= $order_id;
+                   $details['product_id']=$row->id;
+                   $details['product_name']=$row->name;
+                   $details['color']=$row->options->color;
+                   $details['size']=$row->options->size;
+                   $details['quantity']=$row->qty;
+                   $details['single_price']=$row->price;
+                   $details['total_price']=$row->qty * $row->price;
+                   DB::table('order_details')->insert($details);
+               }
+               
+               //stock management
+               $stock=DB::table('order_details')->where('order_id',$order_id)->get();
+               foreach ($stock as $row) {
+                   DB::table('products')
+                   ->where('id',$row->product_id)
+                   ->update(['product_quantity' => DB::raw('product_quantity -'.$row->quantity)]);
+               }
+
+               Cart::destroy();
+                if (Session::has('coupon')) {
+                 Session::forget('coupon');
+               }
+
+              $notification=array(
+                             'messege'=>'Successfully Payment Done',
+                              'alert-type'=>'success'
+                        );
+                return Redirect()->to('/')->with($notification);
         }
 
+        else{
+            $notification=array(
+                'messege'=>'Please select a payment type',
+                 'alert-type'=>'success'
+            );
+            return redirect()->back()->with($notification);
+        }
 
     }
 

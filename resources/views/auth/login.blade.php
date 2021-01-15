@@ -83,8 +83,8 @@
                         <a href="{{ route('password.request') }}" class="text-primary">I forgot my password</a><br><br>
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <br> <br>
-                        <button class="btn btn-primary"> Login With Facebook</button><br><br>
-                        <button class="btn btn-danger"> Login With Google</button>
+                        {{-- <button class="btn btn-primary"> Login With Facebook</button><br><br>
+                        <button class="btn btn-danger"> Login With Google</button> --}}
                       </form>
                 </div>
             </div>

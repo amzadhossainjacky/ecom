@@ -32,8 +32,12 @@ class FrontendController extends Controller
                     ->where('products.status', 1)
                     ->where('products.mid_slider',1)->orderBy('id', 'desc')->limit(3)->get();
 
+        $electronics = DB::table('products')->where('status', 1)
+        ->leftjoin('subcategories', 'products.subcategory_id', 'subcategories.id')
+        ->select('products.*','subcategories.subcategory_name')
+        ->where('products.category_id',4)->orderBy('id', 'desc')->limit(24)->get();
         
-        return view('pages.index', compact('featured','trend','best_rated', 'hot_deal', 'mid_slider'));
+        return view('pages.index', compact('featured','trend','best_rated', 'hot_deal', 'mid_slider','electronics'));
     }
 
     /**

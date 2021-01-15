@@ -205,5 +205,20 @@ class CartController extends Controller
         );
         return redirect()->back()->with($notification);
     }
+
+    public function allCancelCart(){
+        Cart::destroy();
+        if (Session::has('coupon')) {
+        Session::forget('coupon');
+        }
+
+        $notification=array(
+            'messege'=>'Successfully All Cart Cancel',
+             'alert-type'=>'success'
+       );
+
+       return Redirect()->to('/')->with($notification);
+
+    }
     
 }

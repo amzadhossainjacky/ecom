@@ -66,7 +66,7 @@
 
       {{-- modal --}}
 
-      <!-- LARGE MODAL -->
+{{--       <!-- LARGE MODAL -->
       <div id="examplemodal" class="modal fade">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content tx-size-sm">
@@ -107,6 +107,6 @@
           </form>
           </div>
         </div><!-- modal-dialog -->
-      </div><!-- modal -->
+      </div><!-- modal --> --}}
 
 @endsection();

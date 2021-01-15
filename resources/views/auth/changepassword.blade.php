@@ -67,8 +67,6 @@
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item"><a href="{{route('password.change')}}">Password Change</a></li>
-                  <li class="list-group-item">Dapibus ac facilisis in</li>
-                  <li class="list-group-item">Vestibulum at eros</li>
                 </ul>
                   <div class="p-2">
                     <a href="{{route('user.logout')}}" class="btn btn-danger d-block">Logout</a>

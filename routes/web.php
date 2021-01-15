@@ -94,6 +94,7 @@ Route::get('user/wishlists','CartController@showWishlists')->name('user.wishlist
 Route::get('user/checkout','CartController@checkout')->name('user.checkout');
 Route::post('coupon/apply','CartController@couponApply')->name('apply.coupon');
 Route::get('remove/coupon','CartController@couponRemove')->name('remove.coupon');
+Route::get('user/cancel/cart','CartController@allCancelCart')->name('user.cancel.cart');
 
 //payment 
 Route::get('user/payment/process','PaymentController@payment')->name('payment.step');

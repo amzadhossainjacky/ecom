@@ -43,7 +43,7 @@
 
 										<div class="cart_item_total cart_info_col">
 											<div class="cart_item_title text-center">Action</div><br>
-											<a href="#" class="btn btn-sm btn-danger mt-3">Add To Cart</a>
+											<a href="" class="btn btn-sm btn-danger mt-3">Add To Cart</a>
 										</div>
 									</div>
 								</li>

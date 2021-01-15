@@ -67,7 +67,6 @@
                     </div>
                     <ul class="list-group list-group-flush">
                       <li class="list-group-item"><a href="{{route('password.change')}}">Password Change</a></li>
-                      <li class="list-group-item">Dapibus ac facilisis in</li>
                       <li class="list-group-item"><a href="{{route('return.order.list')}}">Return Order</a></li>
                     </ul>
                       <div class="p-2">

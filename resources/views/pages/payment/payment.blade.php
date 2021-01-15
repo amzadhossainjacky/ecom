@@ -76,8 +76,8 @@
                            <div class="form-group">
                                 <ul class="logos_list " >
                                             <li><input type="radio" name="paymentType" value="stripe"> <img src="{{ asset('public/frontend/images/mastercard.png') }}" style="width: 100px; height: 60px;"></li>
-                                            <li><input type="radio" name="paymentType" value="paypal"> <img src="{{ asset('public/frontend/images/paypal.png') }}" style="width: 100px;"></li>
-                                             <li><input type="radio" name="paymentType" value="ideal"> <img src="{{ asset('public/frontend/images/mollie.png') }}" style="width: 100px; height: 80px;"></li>
+                                            {{-- <li><input type="radio" name="paymentType" value="paypal"> <img src="{{ asset('public/frontend/images/paypal.png') }}" style="width: 100px;"></li>
+                                            <li><input type="radio" name="paymentType" value="ideal"> <img src="{{ asset('public/frontend/images/mollie.png') }}" style="width: 100px; height: 80px;"></li> --}}
                                              <li><input type="radio" name="paymentType" value="cash" ><strong class="ml-3">Cash </strong></li>
                                  </ul>
                             </div><br>
